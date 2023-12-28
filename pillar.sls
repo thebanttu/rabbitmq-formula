@@ -22,7 +22,7 @@ rabbitmq:
         - rabbitmq_management
         #- rabbitmq_federation
         #- rabbitmq_federation_management
-        - rabbitmq_auth_backend_ldap
+        #- rabbitmq_auth_backend_ldap
         - rabbitmq_shovel
         - rabbitmq_shovel_management
       vhosts:
