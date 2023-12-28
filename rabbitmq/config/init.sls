@@ -9,6 +9,6 @@ include:
   - .plugins
   - .exchanges
   - .bindings
-  - .policies
-  - .parameters
-  - .clusters
+#  - .policies
+#  - .parameters
+#  - .clusters
