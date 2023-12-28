@@ -26,15 +26,8 @@ rabbitmq:
         - rabbitmq_shovel
         - rabbitmq_shovel_management
       vhosts:
-        - default_vhost
         - /
       queues:
-        test-queue:
-          user: saltstack_mq
-          passwd: chumvi_kidogo
-          durable: 'true'
-          auto_delete: 'false'
-          vhost: default_vhost
         BIKO_SENDSMS:
           user: biko
           passwd: b1k0isth3REAL001
@@ -108,14 +101,6 @@ rabbitmq:
           durable: 'true'
           auto_delete: 'false'
       bindings:
-        my-binding:
-          source: 'amq.topic'
-          destination_type: queue
-          destination: my-queue
-          routing_key: a_routing_key_string
-          user: saltstack_mq
-          passwd: 'chumvi_kidogo'
-          vhost: default_vhost
         BIKO_SENDSMS_QUEUE:
           user: biko
           passwd: 'b1k0isth3REAL001'
@@ -205,17 +190,6 @@ rabbitmq:
           routing_key: GREMS_BET_UPDATE_RESPONSE_ROUTE
           destination_type: queue       
       exchanges:
-        my-exchange:
-          user: saltstack_mq
-          passwd: 'chumvi_kidogo'
-          type: fanout
-          durable: 'true'
-          internal: 'false'
-          auto_delete: 'false'
-          vhost: default_vhost
-          arguments:
-            alternate-**exchange: 'amq.fanout'
-            test-header: 'testing'
         BIKO_SENDSMS_EXCHANGE:
           user: biko
           passwd: 'b1k0isth3REAL001'
@@ -331,7 +305,7 @@ rabbitmq:
             - monitoring
             - user
           perms:
-            default_vhost:
+            /:
               - '.*'
               - '.*'
               - '.*'
@@ -342,7 +316,7 @@ rabbitmq:
             - administrator
             - management
           perms:
-            default_vhost:
+            /:
               - '.*'
               - '.*'
               - '.*'
@@ -353,7 +327,7 @@ rabbitmq:
             - management
             - administrator
           perms:
-            'default_vhost':
+            '/':
               - '.*'
               - '.*'
               - '.*'
