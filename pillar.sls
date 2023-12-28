@@ -358,40 +358,40 @@ rabbitmq:
               - '.*'
               - '.*'
       parameters:
-        my-federation-upstream-set:
-          component: federation-upstream-set
-          definition:
-            # todo: multiple dict items (not just one)
-            upstream: my-federation-upstream1
-          vhost: default_vhost
-        my-federation-upstream1:
-          component: federation-upstream
-          definition:
-            uri: 'amqp://saltstack_mq:chumvi_kidogo@localhost'
-            ack-mode: on-confirm
-            trust-user-id: true
-            max-hops: 1
-          vhost: default_vhost
+        #my-federation-upstream-set:
+        #  component: federation-upstream-set
+        #  definition:
+        #    # todo: multiple dict items (not just one)
+        #    upstream: my-federation-upstream1
+        #  vhost: default_vhost
+        #my-federation-upstream1:
+        #  component: federation-upstream
+        #  definition:
+        #    uri: 'amqp://saltstack_mq:chumvi_kidogo@localhost'
+        #    ack-mode: on-confirm
+        #    trust-user-id: true
+        #    max-hops: 1
+        #  vhost: default_vhost
       policies:
-        my-federation-policy1:
-          definition:
-            federation-upstream-set: all
-          pattern: '^federated1\.'
-          priority: 1
-          vhost: default_vhost
-        my-federation-policy2:
-          definition:
-            federation-upstream-set: my-federation-upstream-set
-          pattern: '^federated2\.'
-          priority: 1
-          vhost: default_vhost
-        my-ha-policy:
-          definition:
-            ha-mode: nodes
-            ha-params: ["rabbit"]
-          pattern: '.*'
-          priority: 1
-          vhost: default_vhost
+        #my-federation-policy1:
+        #  definition:
+        #    federation-upstream-set: all
+        #  pattern: '^federated1\.'
+        #  priority: 1
+        #  vhost: default_vhost
+        #my-federation-policy2:
+        #  definition:
+        #    federation-upstream-set: my-federation-upstream-set
+        #  pattern: '^federated2\.'
+        #  priority: 1
+        #  vhost: default_vhost
+        #my-ha-policy:
+        #  definition:
+        #    ha-mode: nodes
+        #    ha-params: ["rabbit"]
+        #  pattern: '.*'
+        #  priority: 1
+        #  vhost: default_vhost
 
   pkg:
     # https://github.com/rabbitmq/rabbitmq-server/releases/tag/v3.8.14
