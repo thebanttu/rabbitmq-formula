@@ -20,8 +20,8 @@ rabbitmq:
         # auth_ldap.dn_lookup_base: OU=myOrg,DC=example,DC=com
       plugins:
         - rabbitmq_management
-        - rabbitmq_federation
-        - rabbitmq_federation_management
+        #- rabbitmq_federation
+        #- rabbitmq_federation_management
         - rabbitmq_auth_backend_ldap
         - rabbitmq_shovel
         - rabbitmq_shovel_management
@@ -388,7 +388,7 @@ rabbitmq:
         my-ha-policy:
           definition:
             ha-mode: nodes
-            ha-params: ["rabbit", "rabbit2"]
+            ha-params: ["rabbit"]
           pattern: '.*'
           priority: 1
           vhost: default_vhost
