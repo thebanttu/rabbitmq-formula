@@ -65,12 +65,6 @@ rabbitmq:
           vhost: /
           durable: 'true'
           auto_delete: 'false'
-        BIKO_WITHDRAWAL_QUEUE:
-          user: biko
-          passwd: b1k0isth3REAL001
-          vhost: /
-          durable: 'true'
-          auto_delete: 'false'
         WITHDRAWAL_STATUS:
           user: biko
           passwd: b1k0isth3REAL001
@@ -146,14 +140,6 @@ rabbitmq:
           destination: BIKO_WINNER_MESSAGES_QUEUE
           routing_key: BIKO_WINNER_MESSAGES_ROUTE
           destination_type: queue
-        BIKO_WINNER_MESSAGES_QUEUE:
-          user: biko
-          passwd: 'b1k0isth3REAL001'
-          vhost: /
-          source: BIKO_WINNER_MESSAGES_QUEUE
-          destination: BIKO_WINNER_MESSAGES_QUEUE
-          routing_key: BIKO_WINNER_MESSAGES_QUEUE
-          destination_type: queue
         BIKO_WITHDRAWAL_QUEUE:
           user: biko
           passwd: 'b1k0isth3REAL001'
@@ -161,14 +147,6 @@ rabbitmq:
           source: BIKO_WITHDRAWAL_EXCHANGE
           destination: BIKO_WITHDRAWAL_QUEUE
           routing_key: BIKO_WITHDRAWAL_ROUTE
-          destination_type: queue
-        BIKO_WITHDRAWAL_QUEUE:
-          user: biko
-          passwd: 'b1k0isth3REAL001'
-          vhost: /
-          source: BIKO_WITHDRAWAL_QUEUE
-          destination: BIKO_WITHDRAWAL_QUEUE
-          routing_key: BIKO_WITHDRAWAL_KEY
           destination_type: queue
         WITHDRAWAL_STATUS:
           user: biko
