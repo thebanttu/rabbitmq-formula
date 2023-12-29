@@ -2,7 +2,7 @@
 # vim: ft=yaml
 ---
 rabbitmq:
-  erlang_cookie: shared-secret
+  erlang_cookie: g+fhl5apYOiTTNjpt54r/w==
   nodes:
     rabbit:  # default node name
       config:
@@ -359,13 +359,13 @@ rabbitmq:
         #  pattern: '^federated2\.'
         #  priority: 1
         #  vhost: default_vhost
-        #my-ha-policy:
-        #  definition:
-        #    ha-mode: nodes
-        #    ha-params: ["rabbit"]
-        #  pattern: '.*'
-        #  priority: 1
-        #  vhost: default_vhost
+        my-ha-policy:
+          definition:
+            ha-mode: nodes
+            ha-params: ["rabbit"]
+          pattern: '.*'
+          priority: 1
+          vhost: default_vhost
 
   pkg:
     # https://github.com/rabbitmq/rabbitmq-server/releases/tag/v3.8.14

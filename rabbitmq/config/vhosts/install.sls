@@ -19,8 +19,6 @@ rabbitmq-config-vhosts-add-{{ name }}-{{ vhost }}:
     - name: /usr/sbin/rabbitmqctl --node {{ name }} add_vhost {{ vhost }}
     - onlyif: test -x /usr/sbin/rabbitmqctl
     - runas: rabbitmq
-    - env:
-        - ELIXIR_ERL_OPTIONS: "+fnu"
     - require:
       - sls: {{ sls_config_plugins }}
     - require_in:
